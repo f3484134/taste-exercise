@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知流 — 企业知识，自然流动</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --cream: #faf8f5;
+  --warm: #f5f0ea;
+  --text: #2c2418;
+  --brown: #8b7355;
+  --terracotta: #c4704b;
+  --forest: #4a6741;
+  --gold: #b8963e;
+}
+body { font-family: 'Noto Sans SC', serif; background: var(--cream); color: var(--text); }
+
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 4rem;
+}
+nav .logo {
+  font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 1.5rem;
+  color: var(--terracotta);
+}
+nav .links { display: flex; gap: 2.5rem; font-size: 0.85rem; color: var(--brown); }
+nav .links a { text-decoration: none; color: inherit; }
+.btn-warm {
+  padding: 0.65rem 1.8rem; background: var(--terracotta); color: #fff;
+  border: none; border-radius: 100px; font-size: 0.85rem; cursor: pointer;
+  font-family: inherit; font-weight: 500; transition: background 0.3s;
+}
+.btn-warm:hover { background: #a85d3a; }
+
+/* HERO */
+.hero {
+  max-width: 1100px; margin: 0 auto;
+  padding: 8rem 4rem 6rem; display: grid;
+  grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.hero-text .eyebrow {
+  font-size: 0.8rem; color: var(--forest); font-weight: 500;
+  margin-bottom: 1.5rem; letter-spacing: 1px;
+}
+.hero-text h1 {
+  font-family: 'Noto Serif SC', serif; font-size: 3rem; font-weight: 900;
+  line-height: 1.35; margin-bottom: 1.5rem; color: var(--text);
+}
+.hero-text p {
+  font-size: 1.05rem; color: var(--brown); line-height: 2;
+  margin-bottom: 2.5rem; font-weight: 300;
+}
+.hero-actions { display: flex; gap: 1rem; align-items: center; }
+.btn-text { background: none; border: none; color: var(--terracotta); font-size: 0.95rem; cursor: pointer; font-family: inherit; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ILLUSTRATION */
+.hero-visual {
+  display: flex; flex-direction: column; gap: 1.2rem;
+}
+.knowledge-card {
+  background: #fff; border-radius: 16px; padding: 1.8rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.knowledge-card .tag {
+  display: inline-block; padding: 0.3rem 0.8rem; border-radius: 100px;
+  font-size: 0.7rem; font-weight: 500; margin-bottom: 0.8rem;
+}
+.kc-1 .tag { background: rgba(74,103,65,0.1); color: var(--forest); }
+.kc-2 .tag { background: rgba(196,112,75,0.1); color: var(--terracotta); }
+.kc-3 .tag { background: rgba(184,150,62,0.1); color: var(--gold); }
+.knowledge-card h4 { font-family: 'Noto Serif SC', serif; font-size: 1rem; margin-bottom: 0.5rem; }
+.knowledge-card p { font-size: 0.8rem; color: var(--brown); line-height: 1.7; }
+.knowledge-card .conn {
+  margin-top: 0.8rem; font-size: 0.7rem; color: var(--brown); opacity: 0.6;
+}
+
+/* PHILOSOPHY */
+.philosophy {
+  background: var(--warm); padding: 6rem 4rem;
+}
+.philosophy-inner {
+  max-width: 800px; margin: 0 auto; text-align: center;
+}
+.philosophy h2 {
+  font-family: 'Noto Serif SC', serif; font-size: 2.2rem; font-weight: 700;
+  margin-bottom: 2rem; line-height: 1.5;
+}
+.philosophy p { font-size: 1.05rem; color: var(--brown); line-height: 2; font-weight: 300; }
+
+/* FEATURES */
+.features {
+  max-width: 1000px; margin: 0 auto; padding: 6rem 4rem;
+}
+.features h2 {
+  font-family: 'Noto Serif SC', serif; font-size: 2rem; font-weight: 700;
+  text-align: center; margin-bottom: 4rem;
+}
+.feat-list { display: flex; flex-direction: column; gap: 0; }
+.feat-item {
+  display: grid; grid-template-columns: 80px 1fr; gap: 2rem;
+  padding: 2.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+  align-items: start;
+}
+.feat-item .num {
+  font-family: 'Noto Serif SC', serif; font-size: 2.5rem; font-weight: 900;
+  color: var(--terracotta); opacity: 0.3;
+}
+.feat-item h3 {
+  font-family: 'Noto Serif SC', serif; font-size: 1.2rem; font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.feat-item p { font-size: 0.9rem; color: var(--brown); line-height: 1.8; font-weight: 300; }
+
+/* TESTIMONIAL */
+.testimonial {
+  max-width: 700px; margin: 0 auto; padding: 6rem 4rem; text-align: center;
+}
+.testimonial .quote {
+  font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 400;
+  line-height: 1.8; margin-bottom: 2rem; color: var(--text);
+  font-style: italic;
+}
+.testimonial .author { color: var(--brown); font-size: 0.9rem; }
+.testimonial .author strong { color: var(--text); font-weight: 500; }
+
+/* CTA */
+.cta-final {
+  background: var(--text); color: var(--cream); padding: 6rem 4rem;
+  text-align: center;
+}
+.cta-final h2 {
+  font-family: 'Noto Serif SC', serif; font-size: 2.2rem; font-weight: 700;
+  margin-bottom: 1rem;
+}
+.cta-final p { color: var(--brown); margin-bottom: 2.5rem; font-size: 1rem; font-weight: 300; }
+.btn-cream {
+  padding: 0.9rem 2.5rem; background: var(--cream); color: var(--text);
+  border: none; border-radius: 100px; font-size: 1rem; cursor: pointer;
+  font-family: 'Noto Serif SC', serif; font-weight: 600;
+  transition: transform 0.2s;
+}
+.btn-cream:hover { transform: scale(1.05); }
+
+footer {
+  padding: 2.5rem 4rem; display: flex; justify-content: space-between;
+  font-size: 0.8rem; color: var(--brown);
+}
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; padding: 5rem 2rem 3rem; gap: 3rem; }
+  nav { padding: 1rem 1.5rem; }
+  nav .links { display: none; }
+  .feat-item { grid-template-columns: 1fr; }
+  .feat-item .num { display: none; }
+  .philosophy, .features, .testimonial { padding: 4rem 2rem; }
+  footer { flex-direction: column; gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">知流</div>
+  <div class="links">
+    <a href="#">理念</a><a href="#">功能</a><a href="#">故事</a><a href="#">定价</a>
+  </div>
+  <button class="btn-warm">开始使用</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">🌿 让知识如水般流动</div>
+    <h1>好的知识管理，<br>应该感觉不到它的存在</h1>
+    <p>知流不是又一个需要"维护"的工具。它安静地融入你的工作流，在你需要时恰好出现，在你不需要时悄然退场。</p>
+    <div class="hero-actions">
+      <button class="btn-warm">体验知流</button>
+      <button class="btn-text">了解我们的理念 →</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="knowledge-card kc-1">
+      <span class="tag">📄 产品文档</span>
+      <h4>2026 Q1 产品路线图</h4>
+      <p>核心目标：提升企业客户留存率至 92%，重点投入 API 开放平台建设...</p>
+      <div class="conn">↗ 关联 3 篇文档 · 被引用 12 次</div>
+    </div>
+    <div class="knowledge-card kc-2">
+      <span class="tag">💡 会议记录</span>
+      <h4>产品评审会 — 客户反馈总结</h4>
+      <p>李明提出数据导出功能需要支持自定义模板，预计影响 200+ 企业客户...</p>
+      <div class="conn">↗ 关联 5 篇文档 · 1 个待办</div>
+    </div>
+    <div class="knowledge-card kc-3">
+      <span class="tag">📊 数据洞察</span>
+      <h4>知识使用趋势 · 本周</h4>
+      <p>搜索量 ↑ 23% · 最热话题：API 文档 · 知识缺口：部署指南</p>
+      <div class="conn">↗ 系统自动生成</div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <h2>我们相信，最好的工具是<br>你忘记自己在用的工具</h2>
+    <p>大多数知识管理产品失败，不是因为功能不够，而是因为它们要求人们改变习惯。知流选择了相反的路：适应你，而不是要求你适应它。我们的 AI 安静地观察、理解、组织，只在恰当的时刻呈现恰当的知识。</p>
+  </div>
+</section>
+
+<section class="features">
+  <h2>用心设计的每一处细节</h2>
+  <div class="feat-list">
+    <div class="feat-item">
+      <div class="num">01</div>
+      <div>
+        <h3>无声接入</h3>
+        <p>连接飞书、企微、Notion 后，知流在后台静默工作。没有迁移成本，没有学习曲线。你的团队甚至不需要知道它在运行。</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="num">02</div>
+      <div>
+        <h3>自然浮现</h3>
+        <p>当你在写文档时，相关知识自动出现在侧边栏。不是粗暴的弹窗推送，而是恰到好处的温柔提醒。</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="num">03</div>
+      <div>
+        <h3>知识酿造</h3>
+        <p>碎片化的聊天记录、会议纪要、随手笔记，经过 AI 的理解和关联，酿造成结构化的团队智慧。时间是最好的催化剂。</p>
+      </div>
+    </div>
+    <div class="feat-item">
+      <div class="num">04</div>
+      <div>
+        <h3>有温度的安全</h3>
+        <p>权限不是冰冷的开关。知流理解组织关系，智能推荐访问权限，既保护敏感信息，又不阻碍知识流动。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="quote">"知流最打动我的，是它的克制。在这个所有产品都在争夺注意力的时代，知流选择了安静地服务。"</div>
+  <div class="author"><strong>王芳</strong> · 某教育科技公司联合创始人</div>
+</section>
+
+<section class="cta-final">
+  <h2>让知识回归本来的样子</h2>
+  <p>自由流动，自然生长，触手可及</p>
+  <button class="btn-cream">开始你的旅程</button>
+</section>
+
+<footer>
+  <span>© 2026 知流科技</span>
+  <span>关于我们 · 隐私 · 博客</span>
+</footer>
+
+</body>
+</html>
